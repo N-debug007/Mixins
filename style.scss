@@ -1,0 +1,48 @@
+$primary-color: red;
+$secondary-color: blue;
+$tertiary-color: green;
+
+@mixin article-color($color, $border-color, $font-size) {
+  text-align: center;
+  color: $color;
+  border: 1px solid $border-color;
+  font-size: $font-size;
+}
+
+:root {
+  font-size: 100%;
+}
+
+* {
+  padding: 0.5em;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1.5px solid $primary-color;
+  h1 {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: $tertiary-color;
+    text-decoration: underline;
+    text-decoration-color: $secondary-color;
+  }
+
+  section {
+    display: flex;
+
+    .article-blue {
+      @include article-color($secondary-color, $tertiary-color, 1rem);
+    }
+    .article-red {
+      @include article-color($primary-color, $tertiary-color, 1rem);
+    }
+    .article-green {
+      @include article-color($tertiary-color, $secondary-color, 1.5rem);
+    }
+  }
+}

@@ -2,7 +2,7 @@ $primary-color: red;
 $secondary-color: blue;
 $tertiary-color: green;
 
-@mixin article-color($color, $border-color, $font-size) {
+@mixin article-color($color: $secondary-color, $border-color: $tertiary-color, $font-size: 1rem) {
   text-align: center;
   color: $color;
   border: 1px solid $border-color;
@@ -36,10 +36,10 @@ $tertiary-color: green;
     display: flex;
 
     .article-blue {
-      @include article-color($secondary-color, $tertiary-color, 1rem);
+      @include article-color($color, $border-color, $font-size);
     }
     .article-red {
-      @include article-color($primary-color, $tertiary-color, 1rem);
+      @include article-color($primary-color, $border-color, $font-size);
     }
     .article-green {
       @include article-color($tertiary-color, $secondary-color, 1.5rem);
